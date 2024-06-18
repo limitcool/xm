@@ -1,0 +1,94 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2024-06-18 07:21+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ui/appwindow.slint:73
+msgctxt "AppWindow"
+msgid "Project / Workspace"
+msgstr ""
+
+#: ui/appwindow.slint:78
+msgctxt "AppWindow"
+msgid "Project Path:"
+msgstr ""
+
+#: ui/appwindow.slint:104
+msgctxt "AppWindow"
+msgid "Please select a programming language:"
+msgstr ""
+
+#: ui/appwindow.slint:122
+msgctxt "AppWindow"
+msgid "Eanble Cgo"
+msgstr ""
+
+#: ui/appwindow.slint:133
+msgctxt "AppWindow"
+msgid "Please select the architecture:"
+msgstr ""
+
+#: ui/appwindow.slint:148
+msgctxt "AppWindow"
+msgid "Please select the operating system:"
+msgstr ""
+
+#: ui/appwindow.slint:164
+msgctxt "AppWindow"
+msgid "Toolchain Configuration"
+msgstr ""
+
+#: ui/appwindow.slint:170
+msgctxt "AppWindow"
+msgid "Linux Amd64 C Compiler Path:"
+msgstr ""
+
+#: ui/appwindow.slint:195
+msgctxt "AppWindow"
+msgid "Linux Amd64 C++ Compiler Path:"
+msgstr ""
+
+#: ui/appwindow.slint:220
+msgctxt "AppWindow"
+msgid "arm C Compiler Path:"
+msgstr ""
+
+#: ui/appwindow.slint:244
+msgctxt "AppWindow"
+msgid "arm C++ Compiler Path:"
+msgstr ""
+
+#: ui/appwindow.slint:279
+msgctxt "AppWindow"
+msgid "Compiling..."
+msgstr ""
+
+#: ui/appwindow.slint:281
+msgctxt "AppWindow"
+msgid "Compile Success"
+msgstr ""
+
+#: ui/appwindow.slint:283
+msgctxt "AppWindow"
+msgid "Compile Failed"
+msgstr ""
+
+#: ui/appwindow.slint:285
+msgctxt "AppWindow"
+msgid "Not Currently Supported"
+msgstr ""
+
+#: ui/appwindow.slint:287
+msgctxt "AppWindow"
+msgid "Compile"
+msgstr ""
+

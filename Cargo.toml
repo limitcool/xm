@@ -1,0 +1,26 @@
+[package]
+name = "xm"
+version = "0.1.0"
+authors = ["limitcool <initcoool@gmail.com>"]
+edition = "2021"
+license = "MIT"
+build = "build.rs"
+readme = "README-en.md"
+categories = ["tool", "go", "rust", "slint", "gui"]
+keyword = ["tool", "go", "rust", "slint", "gui"]
+documentation = "https://docs.rs/xm"
+homepage = "https://github.com/limitcool/xm"
+repository = "https://github.com/limitcool/xm"
+description = "XM (Xross-Compile Manager) is a cross-platform compilation management tool that supports cross-compilation for Go and Rust programming languages. Users can easily select the target compilation environment and architecture, and set compiler paths to simplify the cross-compilation process."
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rfd = "0.14.1"
+slint = { version = "1.6", features = ["gettext"] }
+serde = { version = "1.0.203", features = ["derive"] }
+serde_yaml = "0.9.34"
+directories = "5.0.1"
+tokio = { version = "1.38.0", features = ["full"] }
+
+[build-dependencies]
+slint-build = "1.6"

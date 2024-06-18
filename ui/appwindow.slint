@@ -1,0 +1,296 @@
+import { CheckBox, Button, VerticalBox, HorizontalBox, LineEdit, GridBox, TabWidget, ComboBox, Switch } from "std-widgets.slint";
+
+export struct CompileInfo  {
+    project-path: string,
+    language: string,
+    cgo: bool,
+    architecture:string,
+    os: string,
+    cc_path:string,
+    cxx_path:string}
+
+export struct  OpenFolderResp {
+    path:string,
+    index:int}
+
+export enum Language {
+    Go,
+    Rust,
+}
+
+export enum Environment {
+    Linux,
+    Windows,
+}
+
+export enum Architecture {
+    ARM,
+    x86_64,
+}
+
+export enum CompileStatus {
+    NotCompile,
+    Compiling,
+    CompileSuccess,
+    CompileFailed,
+    NotSupport,
+
+}
+
+export component AppWindow inherits Window {
+    title: "Xross-Compile Manager";
+    icon: @image-url("logo.jpg");
+    width: 600px;
+    height: 600px;
+    in-out property <string> project-path: "";
+    in-out property <string> amd64_cc_path: "";
+    in-out property <string> amd64_cxx_path: "";
+    in-out property <string> arm_cc_path: "";
+    in-out property <string> arm_cxx_path: "";
+    in-out property <Language> language;
+    in-out property <Environment> environment;
+    in-out property <Architecture> architecture;
+    in-out property <bool> showCgoSwitch: true;
+    in-out property <CompileInfo> compileInfo: { language:project-language, cgo:true, architecture:"amd64", os:"Windows" };
+    in-out property <string> project-language:"Go";
+    in-out property <string> compile-message:"compile";
+    in-out property <CompileStatus> compile-status:CompileStatus.NotCompile;
+    callback show-open-dialog() -> string;
+    callback show-open-file(string) -> string;
+    // callback compile(CompileInfo) -> string;
+    callback compile(CompileInfo);
+    VerticalBox {
+        padding: 20px;
+        spacing: 10px;
+        // Text {
+        //     text: "XM - Xross-Compile Manager";
+        //     font-size: 20px;
+        //     horizontal-alignment: center;
+        // }
+
+        TabWidget {
+            Tab {
+                title: @tr("Project / Workspace");
+                GridBox {
+                    height: 50%;
+                    Row {
+                        Text {
+                            text: @tr("Project Path:");
+                            vertical-alignment: center;
+                            horizontal-alignment: right;
+                        }
+
+                        HorizontalLayout {
+                            colspan: 3;
+                            le_project := LineEdit {
+                                text: project-path;
+                                enabled: true;
+                                horizontal_stretch: 1;
+                            }
+
+                            open_button := Button {
+                                // enabled: !root.deptree-pane-visible;
+                                text: "📂";
+                                clicked => {
+                                    project-path = root.show-open-dialog();
+                                    compileInfo.project-path = project-path;
+                                }
+                            }
+                        }
+                    }
+
+                    Row {
+                        Text {
+                            text: @tr("Please select a programming language:");
+                            vertical-alignment: center;
+                            horizontal-alignment: right;
+                        }
+
+                        cb := ComboBox {
+                            model: ["Go", "Rust"];
+                            selected(selected) => {
+                                if (selected == "Go") {
+                                    showCgoSwitch = true;
+                                } else {
+                                    showCgoSwitch = false;
+                                }
+                                compileInfo.language = selected
+                            }
+                        }
+
+                        Switch {
+                            text: @tr("Eanble Cgo");
+                            visible: showCgoSwitch;
+                            enabled: true;
+                            toggled => {
+                                compileInfo.cgo = !compileInfo.cgo;
+                            }
+                        }
+                    }
+
+                    Row {
+                        Text {
+                            text: @tr("Please select the architecture:");
+                            vertical-alignment: center;
+                            horizontal-alignment: right;
+                        }
+
+                        ComboBox {
+                            model: ["amd64", "arm", "risc-v"];
+                            selected(arch) => {
+                                compileInfo.architecture = arch;
+                            }
+                        }
+                    }
+
+                    Row {
+                        Text {
+                            text: @tr("Please select the operating system:");
+                            vertical-alignment: center;
+                            horizontal-alignment: right;
+                        }
+
+                        ComboBox {
+                            model: ["Windows", "Linux", "MacOS"];
+                            selected(os) => {
+                                compileInfo.os = os;
+                            }
+                        }
+                    }
+                }
+            }
+
+            Tab {
+                title: @tr("Toolchain Configuration");
+                GridBox {
+                    // height: 50px;
+
+                    Row {
+                        Text {
+                            text: @tr("Linux Amd64 C Compiler Path:");
+                            vertical-alignment: center;
+                            horizontal-alignment: right;
+                        }
+
+                        HorizontalLayout {
+                            colspan: 3;
+                            LineEdit {
+                                enabled: true;
+                                text: amd64_cc_path;
+                                horizontal_stretch: 1;
+                            }
+
+                            Button {
+                                text: "📂";
+                                clicked => {
+                                    amd64_cc_path = root.show-open-file("amd64_cc");
+                                    compileInfo.cc-path = amd64_cc_path
+                                }
+                            }
+                        }
+                    }
+
+                    Row {
+                        Text {
+                            text: @tr("Linux Amd64 C++ Compiler Path:");
+                            vertical-alignment: center;
+                            horizontal-alignment: right;
+                        }
+
+                        HorizontalLayout {
+                            colspan: 3;
+                            LineEdit {
+                                enabled: true;
+                                text: amd64_cxx_path;
+                                horizontal_stretch: 1;
+                            }
+
+                            Button {
+                                text: "📂";
+                                clicked => {
+                                    amd64_cxx_path = root.show-open-file("amd64_cxx");
+                                    compileInfo.cxx-path = amd64_cxx_path
+                                }
+                            }
+                        }
+                    }
+
+                    Row {
+                        Text {
+                            text: @tr("arm C Compiler Path:");
+                            vertical-alignment: center;
+                            horizontal-alignment: right;
+                        }
+
+                        HorizontalLayout {
+                            colspan: 3;
+                            LineEdit {
+                                enabled: true;
+                                text: arm_cc_path;
+                                horizontal_stretch: 1;
+                            }
+
+                            Button {
+                                text: "📂";
+                                clicked => {
+                                    arm_cc_path = root.show-open-file("arm_cc");
+                                }
+                            }
+                        }
+                    }
+
+                    Row {
+                        Text {
+                            text: @tr("arm C++ Compiler Path:");
+                            vertical-alignment: center;
+                            horizontal-alignment: right;
+                        }
+
+                        HorizontalLayout {
+                            colspan: 3;
+                            LineEdit {
+                                enabled: true;
+                                text: arm_cxx_path;
+                                horizontal_stretch: 1;
+                            }
+
+                            Button {
+                                text: "📂";
+                                clicked => {
+                                    arm_cxx_path = root.show-open-file("arm_cxx");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        Button {
+            enabled: {
+                if compile-status == CompileStatus.Compiling {
+                    false;
+                } else {
+                    true;
+                }
+            };
+            text: {
+                if compile-status == CompileStatus.Compiling {
+                    @tr("Compiling...");
+                } else if compile-status == CompileStatus.CompileSuccess {
+                    @tr("Compile Success");
+                } else if compile-status == CompileStatus.CompileFailed {
+                    @tr("Compile Failed");
+                } else if compile-status == CompileStatus.NotSupport {
+                    @tr("Not Currently Supported");
+                } else {
+                    @tr("Compile");
+                }
+            };
+            // horizontal-alignment: center;
+            clicked => {
+                root.compile(compileInfo);
+            }
+        }
+    }
+}

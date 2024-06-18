@@ -1,0 +1,93 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2024-06-18 07:21+0000\n"
+"PO-Revision-Date: 2024-06-18 15:34+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#: ui/appwindow.slint:73
+msgctxt "AppWindow"
+msgid "Project / Workspace"
+msgstr "项目/工作区"
+
+#: ui/appwindow.slint:78
+msgctxt "AppWindow"
+msgid "Project Path:"
+msgstr "项目路径："
+
+#: ui/appwindow.slint:104
+msgctxt "AppWindow"
+msgid "Please select a programming language:"
+msgstr "请选择编程语言："
+
+#: ui/appwindow.slint:122
+msgctxt "AppWindow"
+msgid "Eanble Cgo"
+msgstr "开启Cgo"
+
+#: ui/appwindow.slint:133
+msgctxt "AppWindow"
+msgid "Please select the architecture:"
+msgstr "请选择架构："
+
+#: ui/appwindow.slint:148
+msgctxt "AppWindow"
+msgid "Please select the operating system:"
+msgstr "请选择操作系统："
+
+#: ui/appwindow.slint:164
+msgctxt "AppWindow"
+msgid "Toolchain Configuration"
+msgstr "工具链配置"
+
+#: ui/appwindow.slint:170
+msgctxt "AppWindow"
+msgid "Linux Amd64 C Compiler Path:"
+msgstr "Linux Amd64 C 编译器路径："
+
+#: ui/appwindow.slint:195
+msgctxt "AppWindow"
+msgid "Linux Amd64 C++ Compiler Path:"
+msgstr "Linux Amd64 C++ 编译器路径："
+
+#: ui/appwindow.slint:220
+msgctxt "AppWindow"
+msgid "arm C Compiler Path:"
+msgstr "arm C 编译器路径："
+
+#: ui/appwindow.slint:244
+msgctxt "AppWindow"
+msgid "arm C++ Compiler Path:"
+msgstr "arm C++ 编译器路径:"
+
+#: ui/appwindow.slint:279
+msgctxt "AppWindow"
+msgid "Compiling..."
+msgstr "编译中..."
+
+#: ui/appwindow.slint:281
+msgctxt "AppWindow"
+msgid "Compile Success"
+msgstr "编译成功"
+
+#: ui/appwindow.slint:283
+msgctxt "AppWindow"
+msgid "Compile Failed"
+msgstr "编译失败"
+
+#: ui/appwindow.slint:285
+msgctxt "AppWindow"
+msgid "Not Currently Supported"
+msgstr "暂不支持"
+
+#: ui/appwindow.slint:287
+msgctxt "AppWindow"
+msgid "Compile"
+msgstr "编译"
