@@ -1,7 +1,9 @@
 # XM - Xross Compile Manager
 
-![logo](assets/logo_200.jpg)
 English| [简体中文](README.md)
+
+![logo](assets/logo_200.jpg)
+
 XM (Xross-Compile Manager) is a cross-platform compilation management tool that supports cross-compilation for Go and Rust programming languages. Users can easily select the target compilation environment and architecture, and set compiler paths to simplify the cross-compilation process.
 
 ## Features

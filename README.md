@@ -1,7 +1,9 @@
 # XM - Xross Compile Manager
 
-![logo](assets/logo_200.jpg)
 [English](README-en.md) | 简体中文
+
+![logo](assets/logo_200.jpg)
+
 XM (Xross-Compile Manager) 是一个跨平台编译管理工具，支持 Go 和 Rust 编程语言的交叉编译。用户可以轻松选择目标编译环境和架构，并设置编译器路径，简化跨平台编译过程。
 
 ## 特性
